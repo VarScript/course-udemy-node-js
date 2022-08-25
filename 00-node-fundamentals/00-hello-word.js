@@ -7,10 +7,10 @@ console.log(name);
 // -> vargas
 // -> undefined
 
-const name = 'fabio'
+const name2 = 'fabio'
 console.log(name);
 
-name = 'vargas'
+name2 = 'vargas'
 console.log(name);
 // -> err
 // const cannot re assign values
