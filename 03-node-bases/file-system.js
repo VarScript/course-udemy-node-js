@@ -1,3 +1,4 @@
+// Import module
 const fs = require('fs');
 
 console.clear();
@@ -14,6 +15,7 @@ for(let i = 1; i <= 10; i++) {
 }
 console.log(output);
 
+// use module fs.writeFile( 'name-file' , data, callback)
 fs.writeFile( `table-${ base }.txt`, output, (err) =>{
     if (err) throw err;
     console.log('Table create');
