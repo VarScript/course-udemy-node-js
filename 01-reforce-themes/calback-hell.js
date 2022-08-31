@@ -34,7 +34,7 @@ const getEmployeeById = ( id, callback ) => {
     
 }
 
-const getSalaryoByTd = ( id, callback ) => {
+const getSalaryoById = ( id, callback ) => {
 
     const salary = salaries.find( s => s.id === id);
 
@@ -51,7 +51,7 @@ getEmployeeById( 1, ( err, employee ) => {
         console.log('ERROR!');
         return console.log(err);
     } else {
-        getSalaryoByTd( 3, ( err, salary ) => {
+        getSalaryoById( 3, ( err, salary ) => {
             if (err) {
                 return console.log(err);
             } else {
