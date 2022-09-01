@@ -1,16 +1,32 @@
 const { createFile } = require('./helpers/multiply.js')
+const argv = require('yargs')
 
-const argv = require('yargs').argv;
+            .option ('b', {
+                alias: 'base',
+                type: 'number',
+                demandOption: true,
+            })
+            .option ('l', {
+                alias: 'listar',
+                type: 'boolean',
+                demandOption: true,
+                default: false,
+            })
+            .check( (argv, options) => {
+                if ( isNaN(argv.b) ) {
+                    throw 'The base have that be a nunber'
+                } 
+                return true;
+            })
+
+            
+            .argv;
 
 
-// Print two things: argv that is in the process AND The argv that come the yargs
+console.clear();
 
-console.log( process.argv );
-console.log( argv );
+console.log(argv);
 
-console.log( 'Base: yargs ', argv.base )
-
-
-// createFile( base )
-//     .then( nameFile => console.log(`${nameFile} create`))
-//     .catch(err => console.log(err))
+createFile( argv.b, argv.l )
+    .then( nameFile => console.log(`${nameFile} create`))
+    .catch(err => console.log(err))

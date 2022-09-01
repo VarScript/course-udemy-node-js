@@ -1,7 +1,6 @@
 // Import module
 const fs = require('fs');
 
-console.clear();
 console.log('=================');
 console.log(' Table of the: 5 ');
 console.log('=================');
