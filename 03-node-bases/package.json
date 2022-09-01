@@ -1,0 +1,15 @@
+{
+  "name": "03-node-bases",
+  "version": "0.0.1",
+  "description": "This is a simple table of multiply with text archive",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "base3": "node file-system-sync --base=3"
+  },
+  "author": "Fabio Vargas",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
