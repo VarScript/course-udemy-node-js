@@ -2,13 +2,13 @@
 const fs = require('fs');
 const colors = require('colors');
 
-const createFile = async ( base, listar = false) =>  {
+const createFile = async ( base, listar = false, until = 10) =>  {
     try {
         
         
         let output = ''
 
-        for(let i = 1; i <= 10; i++) {
+        for(let i = 1; i <= until; i++) {
 
             output += (`   ${base} x ${i} = ${base * i}\n`);
 
