@@ -1,5 +1,6 @@
 // Import module
 const fs = require('fs');
+const colors = require('colors');
 
 const createFile = async ( base, listar = false) =>  {
     try {
@@ -15,11 +16,11 @@ const createFile = async ( base, listar = false) =>  {
         
         if ( listar ) {
             console.clear();
-            console.log('=================');
-            console.log(` Table of the: ${base} `);
-            console.log('=================');
+            console.log('================='.rainbow);
+            console.log(` Table of the: ${base} `.inverse.blue);
+            console.log('================='.rainbow);
             console.log(' ');
-            console.log(output);
+            console.log(output.rainbow);
         } 
 
 
