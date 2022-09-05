@@ -20,12 +20,11 @@ const main = async () => {
 
     if ( tasksDb ){
 
+        tasks.uploadTaksFromArray( tasksDb )
+
     }
 
 
-    await pause();
-
-    
     do{
         opt = await inquirerMenu(); 
 
@@ -43,7 +42,7 @@ const main = async () => {
             
         }
 
-        // saveDb( tasks.listArr );
+        saveDb( tasks.listArr );
 
         await pause();
 

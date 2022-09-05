@@ -20,7 +20,6 @@ const readDb = () => {
     const info = fs.readFileSync(file, { encoding: 'utf-8' }) ;
     // JSON.parse is for past of string to array
     const data = JSON.parse( info );
-    console.log(data); 
     
     return data;
 

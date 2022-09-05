@@ -24,6 +24,17 @@ class Tasks {
     }
 
 
+    uploadTaksFromArray( tasks = [] ) {
+        
+        tasks.forEach( task => {
+            
+            this._listing[task.id] = task;
+
+        });
+
+    }
+
+
     createTask( desc = '' )  {
 
         const task = new Task(desc);
