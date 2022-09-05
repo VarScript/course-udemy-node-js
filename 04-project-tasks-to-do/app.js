@@ -5,6 +5,8 @@ const { inquirerMenu,
         readInput 
 } = require('./helpers/inquirer');
 
+const { saveDb } = require('./helpers/saveFile');
+
 const Tasks = require('./models/tasks');
 
 
@@ -31,8 +33,7 @@ const main = async () => {
             
         }
 
-
-
+        // saveDb( tasks.listArr );
 
         await pause();
 
