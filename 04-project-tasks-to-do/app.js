@@ -10,10 +10,8 @@ const Tasks = require('./models/tasks');
 
 
 const main = async () => {
-    console.log('Hello word'.rainbow)
 
     let opt = '';
-
     const tasks = new Tasks();
 
     do{
@@ -21,13 +19,13 @@ const main = async () => {
 
         switch (opt) {
             case '1':
-                const desc = await readInput('Description:');
+                const desc = await readInput('Description:'); 
                 tasks.createTask(desc);
 
 
                 break;
             case '2':
-                console.log( tasks._listing );
+                console.log( tasks.listArr );
                 break;
         
             

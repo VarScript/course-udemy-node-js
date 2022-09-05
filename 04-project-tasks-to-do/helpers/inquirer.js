@@ -9,31 +9,31 @@ const questions = [
         choices: [
             {
                 value: '1',
-                name: '1. Create task'
+                name: `${ '1.'.green } Create task`
             },
             {
                 value: '2',
-                name: '2. List task'
+                name: `${ '2.'.green } List task`
             },
             {
                 value: '3',
-                name: '3. List completed task'
+                name: `${ '3.'.green } List completed task`
             },
             {
                 value: '4',
-                name: '4. List pending task'
+                name: `${ '4.'.green } List pending task`
             },
             {
                 value: '5',
-                name: '5. Completed task'
+                name: `${ '5.'.green } Completed task'`
             },
             {
                 value: '6',
-                name: '6. Delete task'
+                name: `${ '6.'.green } Delete task`
             },
             {
                 value: '0',
-                name: '0. Exit'
+                name: `${ '0.'.green } Exit`
             },
             
         ]
