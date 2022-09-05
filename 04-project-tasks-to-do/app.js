@@ -5,7 +5,7 @@ const { inquirerMenu,
         readInput 
 } = require('./helpers/inquirer');
 
-const { saveDb } = require('./helpers/saveFile');
+const { saveDb, readDb } = require('./helpers/saveFile');
 
 const Tasks = require('./models/tasks');
 
@@ -16,6 +16,16 @@ const main = async () => {
     let opt = '';
     const tasks = new Tasks();
 
+    const tasksDb = readDb();
+
+    if ( tasksDb ){
+
+    }
+
+
+    await pause();
+
+    
     do{
         opt = await inquirerMenu(); 
 
