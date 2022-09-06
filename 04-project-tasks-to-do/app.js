@@ -14,6 +14,7 @@ const Tasks = require('./models/tasks');
 const main = async () => {
 
     let opt = '';
+    
     const tasks = new Tasks();
 
     const tasksDb = readDb();
@@ -32,11 +33,10 @@ const main = async () => {
             case '1':
                 const desc = await readInput('Description:'); 
                 tasks.createTask(desc);
-
-
                 break;
+
             case '2':
-                console.log( tasks.listArr );
+                tasks.completedList();
                 break;
         
             

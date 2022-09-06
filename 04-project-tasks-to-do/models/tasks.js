@@ -1,6 +1,7 @@
 const Task = require("./task");
 
 
+
 class Tasks {
     
     _listing = {};
@@ -28,7 +29,7 @@ class Tasks {
         
         tasks.forEach( task => {
             
-            this._listing[task.id] = task;
+        this._listing[task.id] = task;
 
         });
 
@@ -42,6 +43,22 @@ class Tasks {
         this._listing[task.id] = task;
 
     }
+
+
+    completedList() {
+
+        this.listArr.forEach( (task, id) => {
+
+            const idx = `${ id + 1 }`.green;
+            const { desc, completedIn } = task;
+            const status = (completedIn)    
+                            ? 'Completed'.green
+                            : 'Pending'.red;
+            console.log(`${idx} ${desc} :: ${status}`);
+            
+        })
+    }
+
 }
 
 module.exports = Tasks;
