@@ -3,7 +3,9 @@ const Task = require("./task");
 
 
 class Tasks {
-    
+
+
+
     _listing = {};
 
 
@@ -23,6 +25,14 @@ class Tasks {
 
     constructor() {
         this._listing = {};
+    }
+
+
+
+    deleteTask( id = '' ) {
+        if ( this._listing[id] ) {
+            delete this._listing[id];
+        }
     }
 
 
@@ -76,6 +86,9 @@ class Tasks {
             }
         });
     }
+
+
+
 }
 
 

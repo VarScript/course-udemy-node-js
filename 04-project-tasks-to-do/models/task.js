@@ -11,7 +11,6 @@ class Task {
         this.id = uuidv4();
         this.desc = desc;
         this.completedIn = null;
-
     }
 
 }

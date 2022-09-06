@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 require('colors');
 
+
+
 const questions = [
     {
         type: 'list',
@@ -43,21 +45,18 @@ const questions = [
 
 
 const inquirerMenu = async () => {
-
     console.clear();
     console.log('========================'.green);
     console.log('    Select an option    '.green);
     console.log('========================\n'.green);
-
     // destructuring the option because come the option in object and we need only value
     const { option } = await inquirer.prompt(questions);
-
     return option;
-
 }
 
+
+
 const pause = async () => {
-    
     const stop = [
         {
             type: 'input',
@@ -65,10 +64,11 @@ const pause = async () => {
             message: `Press ${'ENTER'.green} to continue\n`
         }
     ];
-
     console.log('\n');
     await inquirer.prompt(stop);
 }
+
+
 
 const readInput = async ( message ) => {
     const question = [ 
@@ -84,14 +84,39 @@ const readInput = async ( message ) => {
             }
         }
     ];
-
     const { desc } = await inquirer.prompt(question);
     return desc;
-
 }
+
+
+
+const taskListDelete = async ( task = [] ) => {
+    // .Map return new array but the values of the array the transform in the that i wanna
+    const choices = task.map( ( task, i ) => {
+        const idx = `${i + 1}.`.green;
+        return {
+            value: task.id,
+            name: `${ idx } ${ task.desc }`
+        }
+    });
+    const questions = [
+        {
+            type: 'list',
+            name: 'id',
+            message: 'Delete',
+            choices
+        }
+    ]
+    const { id } = await inquirer.prompt(questions);
+    return id;
+}
+
+
+
 
 module.exports = {
     inquirerMenu,
     pause,
-    readInput
+    readInput,
+    taskListDelete
 }
