@@ -76,7 +76,7 @@ class Tasks {
             if ( completed ){
                 if ( completedIn ) {
                     counter += 1;
-                    console.log(`${ (counter + '.').green } ${desc} :: ${completedIn}`);
+                    console.log(`${ (counter + '.').green } ${desc} :: ${ completedIn.green }`);
                 }
             } else {
                 if ( !completedIn ) {
@@ -86,6 +86,24 @@ class Tasks {
             }
         });
     }
+
+
+
+    toggleCompleted( ids = [] ) {
+        ids.forEach( id => {
+            const task = this._listing[id];
+            if ( !task.completedIn ) {
+                task.completedIn = new Date().toISOString();
+            }
+        });
+        this.listArr.forEach( (task) => {
+            if ( !ids.includes(task.id) ) {
+                this._listing[task.id].completedIn = null;
+            }
+        })
+        
+    }
+
 
 
 
