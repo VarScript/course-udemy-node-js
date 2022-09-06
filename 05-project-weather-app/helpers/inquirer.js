@@ -11,15 +11,15 @@ const questions = [
         choices: [
             {
                 value: 1,
-                name: `${ '1.'.green } Search city`
+                name: `${ '1.'.magenta } Search city`
             },
             {
                 value: 2,
-                name: `${ '2.'.green } History`
+                name: `${ '2.'.magenta } History`
             },
             {
                 value: 0,
-                name: `${ '3.'.green } Exit`
+                name: `${ '3.'.magenta } Exit`
             }
         ]
     }
@@ -29,9 +29,9 @@ const questions = [
 
 const inquirerMenu = async () => {
     console.clear();
-    console.log('========================'.green);
-    console.log('    Select an option    '.green);
-    console.log('========================\n'.green);
+    console.log('========================'.magenta);
+    console.log('    Select an option    '.magenta);
+    console.log('========================\n'.magenta);
     // destructuring the option because come the option in object and we need only value
     const { option } = await inquirer.prompt(questions);
     return option;
