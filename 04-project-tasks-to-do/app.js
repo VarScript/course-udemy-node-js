@@ -4,7 +4,8 @@ const { inquirerMenu,
         pause, 
         readInput,
         taskListDelete,
-        confirm
+        confirm,
+        showListCheck
 } = require('./helpers/inquirer');
 
 const { saveDb, readDb } = require('./helpers/saveFile');
@@ -43,6 +44,11 @@ const main = async () => {
 
             case '4': 
                 tasks.listPendingCompleted( false );
+                break;
+
+            case '5': 
+                const ids = await showListCheck( tasks.listArr );
+                console.log(ids);
                 break;
             
             case '6': 
