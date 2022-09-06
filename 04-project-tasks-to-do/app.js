@@ -3,7 +3,8 @@ require('colors');
 const { inquirerMenu, 
         pause, 
         readInput,
-        taskListDelete
+        taskListDelete,
+        confirm
 } = require('./helpers/inquirer');
 
 const { saveDb, readDb } = require('./helpers/saveFile');
@@ -46,7 +47,13 @@ const main = async () => {
             
             case '6': 
                 const id = await taskListDelete( tasks.listArr );
-                console.log({ id });
+                if ( id !== '0' ) {
+                const ok = await confirm('Are you sure of delete the task?');
+                    if ( ok ) {
+                        tasks.deleteTask( id );
+                        console.log(`\nTask deleted`.red);
+                    }
+                }
                 break;
             
         }

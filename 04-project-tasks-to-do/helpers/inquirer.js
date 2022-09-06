@@ -27,7 +27,7 @@ const questions = [
             },
             {
                 value: '5',
-                name: `${ '5.'.green } Completed task'`
+                name: `${ '5.'.green } Completed task`
             },
             {
                 value: '6',
@@ -99,6 +99,12 @@ const taskListDelete = async ( task = [] ) => {
             name: `${ idx } ${ task.desc }`
         }
     });
+
+    choices.unshift({
+        value: '0',
+        name: '0.'.green + ' Cancel'
+    });
+
     const questions = [
         {
             type: 'list',
@@ -112,11 +118,25 @@ const taskListDelete = async ( task = [] ) => {
 }
 
 
+const confirm = async ( message ) => {
+    const question = [
+        {
+            type: 'confirm',
+            name: 'ok',
+            message
+        }
+    ];
+    const { ok } = await inquirer.prompt(question);
+    return ok;
+}
+
+
 
 
 module.exports = {
     inquirerMenu,
     pause,
     readInput,
-    taskListDelete
+    taskListDelete,
+    confirm
 }
