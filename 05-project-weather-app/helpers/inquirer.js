@@ -10,34 +10,17 @@ const questions = [
         message: 'What want make?',
         choices: [
             {
-                value: '1',
-                name: `${ '1.'.green } Create task`
+                value: 1,
+                name: `${ '1.'.green } Search city`
             },
             {
-                value: '2',
-                name: `${ '2.'.green } List task`
+                value: 2,
+                name: `${ '2.'.green } History`
             },
             {
-                value: '3',
-                name: `${ '3.'.green } List completed task`
-            },
-            {
-                value: '4',
-                name: `${ '4.'.green } List pending task`
-            },
-            {
-                value: '5',
-                name: `${ '5.'.green } Completed task`
-            },
-            {
-                value: '6',
-                name: `${ '6.'.green } Delete task`
-            },
-            {
-                value: '0',
-                name: `${ '0.'.green } Exit`
-            },
-            
+                value: 0,
+                name: `${ '3.'.green } Exit`
+            }
         ]
     }
 ];
