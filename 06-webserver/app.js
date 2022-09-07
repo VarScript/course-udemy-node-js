@@ -1,26 +1,19 @@
-const http = require('http');
+const express = require('express')
+const app = express();
+const port = 8080;
 
+app.get('/', (req, res) => {
+    res.send('Home page')
+});
 
-// req : request-info solicitude / res: response-what will response to the client
-http.createServer( ( req, res ) => {
+app.get('/hello-word', (req, res) => {
+    res.send('Hello World in his respective rout')
+});
 
+app.get('*', (req, res) => {
+    res.send('404 | page not found')
+});
 
-    // Status and content type
-    //res.writeHead(202, { 'Content-Type': 'application/json'});
-    res.setHeader('Content-Disposition', 'attachment; filename=list.csv')
-    res.writeHead(202, { 'Content-Type': 'application/cvs'});
-
-
-    res.write( 'id, name\n' );
-    res.write( '1, fabio\n' );
-    res.write( '2, maria\n' );
-    res.write( '3, juan\n' );
-
-    // For say to node that now response finalited
-    res.end();
-    
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
 })
-// listen the port 8080 == localhost:8080 in the browser
-.listen( 8080 )
-
-console.log('Listed in the port: ', 8080);
