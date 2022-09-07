@@ -9,11 +9,24 @@ class Searches {
         // ALL: read DB if exist
     }
 
+    get paramsMapbox() {
+        return {
+            'access_token': 'pk.eyJ1IjoidmFyc2NyaXB0IiwiYSI6ImNsN3F2YXppczA4bmUzdW12ZXNyOHQ3cWsifQ.bIy_Bmmrb02mH2J6iSSV7A',
+            'limit': 6,
+            'language': 'en'
+        }
+    }
+
     async city( place = '' ) {
 
         try {
-            // http petition
-            const answ = await axios.get('https://api.mapbox.com/geocoding/v5/mapbox.places/madr.json?proximity=ip&language=en&access_token=pk.eyJ1IjoidmFyc2NyaXB0IiwiYSI6ImNsN3F2YXppczA4bmUzdW12ZXNyOHQ3cWsifQ.bIy_Bmmrb02mH2J6iSSV7A');
+            // Http petition with axios more in the documentation 
+            const instance = axios.create({
+                baseURL: `https://api.mapbox.com/geocoding/v5/mapbox.places/${ place }.json`,
+                params: this.paramsMapbox
+            });
+
+            const answ = await instance.get();
             console.log(answ.data);
     
             return [];
