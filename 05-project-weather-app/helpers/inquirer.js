@@ -86,11 +86,17 @@ const listPlaces = async ( places = [] ) => {
         value: '0',
         name: '0.'.yellow + ' Cancel'
     });
+
+    console.clear();
+    console.log('------------------------'.yellow);
+    console.log('      Select place      '.yellow);
+    console.log('------------------------\n'.yellow);
+
     const questions = [
         {
             type: 'list',
             name: 'id',
-            message: 'Select place: ',
+            message: ' ',
             choices
         }
     ]

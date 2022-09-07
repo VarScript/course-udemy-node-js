@@ -20,15 +20,24 @@ const main = async() => {
         switch ( opt ) {
             case 1:
                     // Show message
-                    const citySearch = await readInput('City: ');
-                    
+                    console.clear();
+                    console.log('------------------------'.yellow);
+                    console.log('      Shearch city      '.yellow);
+                    console.log('------------------------\n'.yellow);
+                    console.log();
+                    const citySearch = await readInput('City: '.yellow);
+
                     // Shearch the places
                     const places = await searches.city( citySearch );
-                    
+
                     // Select the place
                     const id = await listPlaces( places );
-                    const placeSelect = places.find( l => l.id === id )
-                    // console.log(placeSelect)
+                    if (id === '0' ) continue;
+
+                    const placeSelect = places.find( l => l.id === id );
+
+                    // Save in DB
+                    searches.addHistory( placeSelect.name );
 
                     // Weather
                     const weather = await searches.weatherPlace( placeSelect.lat, placeSelect.lng )
@@ -36,7 +45,10 @@ const main = async() => {
 
                     // Show results
                     console.clear();
-                    console.log('\nCity information\n'.yellow);
+                    console.clear();
+                    console.log('------------------------'.yellow);
+                    console.log('    City information    '.yellow);
+                    console.log('------------------------\n'.yellow);
                     console.log('City: ', placeSelect.name.yellow);
                     console.log('Lat: ', placeSelect.lat);
                     console.log('Lng: ', placeSelect.lng);
@@ -44,6 +56,18 @@ const main = async() => {
                     console.log('Min: ', weather.min);
                     console.log('Max: ', weather.max);
                     console.log('How is the weather?: ', weather.desc.yellow);
+                break;
+
+            case 2:
+                    console.clear();
+                    console.log('------------------------'.yellow); 
+                    console.log('         History        '.yellow);
+                    console.log('------------------------\n'.yellow);
+                    console.log();
+                    searches.historyCapitalized.forEach( (place, i) => {
+                        const idx = `${ i + 1 }.`.yellow;
+                        console.log(`${ idx } ${ place }`);
+                    });
                 break;
         }
 
