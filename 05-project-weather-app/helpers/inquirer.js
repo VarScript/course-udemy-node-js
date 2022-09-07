@@ -11,15 +11,15 @@ const questions = [
         choices: [
             {
                 value: 1,
-                name: `${ '1.'.magenta } Search city`
+                name: `${ '1.'.yellow } Search city`
             },
             {
                 value: 2,
-                name: `${ '2.'.magenta } History`
+                name: `${ '2.'.yellow } History`
             },
             {
                 value: 0,
-                name: `${ '3.'.magenta } Exit`
+                name: `${ '3.'.yellow } Exit`
             }
         ]
     }
@@ -29,9 +29,9 @@ const questions = [
 
 const inquirerMenu = async () => {
     console.clear();
-    console.log('========================'.magenta);
-    console.log('    Select an option    '.magenta);
-    console.log('========================\n'.magenta);
+    console.log('========================'.yellow);
+    console.log('    Select an option    '.yellow);
+    console.log('========================\n'.yellow);
     // destructuring the option because come the option in object and we need only value
     const { option } = await inquirer.prompt(questions);
     return option;
@@ -44,7 +44,7 @@ const pause = async () => {
         {
             type: 'input',
             name: 'enter',
-            message: `Press ${'ENTER'.magenta} to continue\n`
+            message: `Press ${'ENTER'.yellow} to continue\n`
         }
     ];
     console.log('\n');
@@ -76,7 +76,7 @@ const readInput = async ( message ) => {
 const listPlaces = async ( places = [] ) => {
     // .Map return new array but the values of the array the transform in the that i wanna
     const choices = places.map( ( places, i ) => {
-        const idx = `${i + 1}.`.magenta;
+        const idx = `${i + 1}.`.yellow;
         return {
             value: places.id,
             name: `${ idx } ${ places.name }`
@@ -84,7 +84,7 @@ const listPlaces = async ( places = [] ) => {
     });
     choices.unshift({
         value: '0',
-        name: '0.'.magenta + ' Cancel'
+        name: '0.'.yellow + ' Cancel'
     });
     const questions = [
         {
@@ -116,7 +116,7 @@ const confirm = async ( message ) => {
 
 const showListCheck = async ( task = [] ) => {
     const choices = task.map( ( task, i ) => {
-        const idx = `${i + 1}.`.magenta;
+        const idx = `${i + 1}.`.yellow;
         return {
             value: task.id,
             name: `${ idx } ${ task.desc }`,
