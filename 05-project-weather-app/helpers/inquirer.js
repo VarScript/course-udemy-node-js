@@ -44,7 +44,7 @@ const pause = async () => {
         {
             type: 'input',
             name: 'enter',
-            message: `Press ${'ENTER'.green} to continue\n`
+            message: `Press ${'ENTER'.magenta} to continue\n`
         }
     ];
     console.log('\n');
@@ -73,24 +73,24 @@ const readInput = async ( message ) => {
 
 
 
-const taskListDelete = async ( task = [] ) => {
+const listPlaces = async ( places = [] ) => {
     // .Map return new array but the values of the array the transform in the that i wanna
-    const choices = task.map( ( task, i ) => {
-        const idx = `${i + 1}.`.green;
+    const choices = places.map( ( places, i ) => {
+        const idx = `${i + 1}.`.magenta;
         return {
-            value: task.id,
-            name: `${ idx } ${ task.desc }`
+            value: places.id,
+            name: `${ idx } ${ places.name }`
         }
     });
     choices.unshift({
         value: '0',
-        name: '0.'.green + ' Cancel'
+        name: '0.'.magenta + ' Cancel'
     });
     const questions = [
         {
             type: 'list',
             name: 'id',
-            message: 'Delete',
+            message: 'Select place: ',
             choices
         }
     ]
@@ -116,7 +116,7 @@ const confirm = async ( message ) => {
 
 const showListCheck = async ( task = [] ) => {
     const choices = task.map( ( task, i ) => {
-        const idx = `${i + 1}.`.green;
+        const idx = `${i + 1}.`.magenta;
         return {
             value: task.id,
             name: `${ idx } ${ task.desc }`,
@@ -145,7 +145,7 @@ module.exports = {
     inquirerMenu,
     pause,
     readInput,
-    taskListDelete,
+    listPlaces,
     confirm,
     showListCheck
 }

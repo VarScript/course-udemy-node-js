@@ -27,9 +27,13 @@ class Searches {
             });
 
             const answ = await instance.get();
-            console.log(answ.data);
-    
-            return [];
+            // ({}) : return object of implicit form
+            return answ.data.features.map( place => ({
+                id: place.id,
+                name: place.place_name,
+                lng: place.center[0],
+                lat: place.center[1],
+            }));
             
         } catch (error) {
             return [];
