@@ -1,8 +1,14 @@
 const express = require('express')
+const hbs = require('hbs');
+
 const app = express()
 const port = 8080;
 
+
+
+// Handelbars
 app.set('view engine', 'hbs');
+hbs.registerPartials( __dirname + '/views/partials');
 
 app.use( express.static('public/template'))
 
@@ -10,21 +16,29 @@ app.use( express.static('public/template'))
 app.get('/', (req, res) => {
     res.render('home', {
         name: 'Fabio',
-        title: 'Couse of Node'
+        title: 'Course of Node'
     });
 })
 
 app.get('/generic', (req, res) => {
-    res.sendFile( __dirname + '/public/template/generic.html')
-});
+    res.render('generic', {
+        name: 'Fabio',
+        title: 'Course of Node'
+    });
+})
 
 app.get('/elements', (req, res) => {
-    res.sendFile( __dirname + '/public/template/elements.html')
-});
+    res.render('elements', {
+        name: 'Fabio',
+        title: 'Course of Node'
+    });
+})
+
 
 app.get('*', (req, res) => {
-    res.sendFile( __dirname + '/public/template/404.html')
-});
+    res.render('404')
+})
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
