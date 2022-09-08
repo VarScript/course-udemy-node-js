@@ -8,7 +8,10 @@ app.use( express.static('public/template'))
 
 
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home', {
+        name: 'Fabio',
+        title: 'Couse of Node'
+    });
 })
 
 app.get('/generic', (req, res) => {
