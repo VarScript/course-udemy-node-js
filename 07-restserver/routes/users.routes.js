@@ -12,13 +12,13 @@ const router = Router();
 // here it call the reference of the same 
 router.get('/', userGet );
 
-router.put('/', userPut );
+router.put('/:id', userPut );
 
-router.post('/', userPost);
+router.post('/', userPost );
 
-router.patch('/', userPatch);
+router.patch('/', userPatch );
 
-router.delete('/', userDelete);
+router.delete('/', userDelete );
 
 
 module.exports = router;
