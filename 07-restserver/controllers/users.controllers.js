@@ -19,9 +19,16 @@ const userPut = (req, res = response) => {
 
 
 const userPost = (req, res = response) => { // create new resources
+    // Recive the body in formart json of server
+    const { name, age, id, lastName } = req.body;
+    
     // when is a json format it send an object
     res.json({ 
-        msg: 'post API - controller'
+        msg: 'post API - controller',
+        name, 
+        age,
+        id,
+        lastName
     });
 }
 

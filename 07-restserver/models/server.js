@@ -20,7 +20,7 @@ class Server {
         // CORS
         this.app.use(cors())
 
-        // Reading and parsing of body
+        // Reading and parsing of body - for show in user.controller
         this.app.use( express.json() );
 
 
